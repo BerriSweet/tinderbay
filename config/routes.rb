@@ -13,7 +13,15 @@ Rails.application.routes.draw do
  				#create page
   				post '/', to: 'sales#create'
   			end
-  		end
+
+      scope "users" do
+        #index page getto
+        get '/', to: 'users#index'
+
+        #create page
+          post '/', to: 'users#create'
+        end
+      end
   	end
 
   resources :posts

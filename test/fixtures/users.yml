@@ -2,14 +2,14 @@
 
 one:
   user_name: MyString
-  date_of_birth: 2017-06-01 11:21:20
+  date_of_birth: 2017-06-07 11:04:04
   password_digest: MyString
   email: MyString
   is_admin: false
 
 two:
   user_name: MyString
-  date_of_birth: 2017-06-01 11:21:20
+  date_of_birth: 2017-06-07 11:04:04
   password_digest: MyString
   email: MyString
   is_admin: false

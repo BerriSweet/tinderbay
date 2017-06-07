@@ -2,12 +2,12 @@
 
 one:
   sale_price: 1.5
-  date_listed: 2017-06-01 11:26:31
-  product: one
-  user: one
+  date_listed: 2017-06-07 11:16:54
+  Product: one
+  User: one
 
 two:
   sale_price: 1.5
-  date_listed: 2017-06-01 11:26:31
-  product: two
-  user: two
+  date_listed: 2017-06-07 11:16:54
+  Product: two
+  User: two

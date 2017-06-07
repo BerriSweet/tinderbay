@@ -1,74 +1,57 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  # GET /users
-  # GET /users.json
-  def index
-    @users = User.all
-  end
+  #JEFFS PART
 
-  # GET /users/1
-  # GET /users/1.json
-  def show
-  end
+    #Because this is an API controller, we need to change a few things and stop the protect_from_forgery method
+    #and need to remove cookies as well. These will raise exceptions if you hit the endpoints and they are not turned off.
+    protect_from_forgery with: :null_session
+    before_action :destroy_session
 
-  # GET /users/new
-  def new
-    @user = User.new
-  end
+    #before executing any method, get JSON
+    before_action :parse_request, only: :create
 
-  # GET /users/1/edit
-  def edit
-  end
+    # #before executing create
+    # before_action only: :create do
+    #   unless @json.has_key?('user') &&
+    #     @json.respond_to?(:[])
 
-  # POST /users
-  # POST /users.json
-  def create
-    @user = User.new(user_params)
+    #     render json: nil, status: :bad_request
+    #   else
+    #     unless @json['user']['user_name'] &&
+    #       @json['user']['date_of_birth'] &&
+    #       @json['user']['password_digest'] &&
+    #       @json['user']['email'] &&
+    #       @json['user']['is_admin']
 
-    respond_to do |format|
+    #       redner json: nil, status: :unprocessed_entity
+    #     end
+    #   end
+    # end
+
+    #Render index
+    def index
+      render json: User.all
+    end
+
+    #Create a new user based on paremeters provided
+    def create
+      @user = User.new(@json["user"])
+
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+        render json: @user
       else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        #internal error, 500
+        render nothing: true, status: :internal_server_error
       end
     end
-  end
 
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
-  def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /users/1
-  # DELETE /users/1.json
-  def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
+    #read the json input
+    def parse_request
+      @json = JSON.parse(request.body.read)
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:user_name, :date_of_birth, :password_digest, :email, :is_admin)
+    #skip the session cookie
+    def destroy_session
+      request.session_options[:skip] = true
     end
 end
