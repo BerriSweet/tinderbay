@@ -10,26 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170601035334) do
+ActiveRecord::Schema.define(version: 20170607031654) do
 
   create_table "posts", force: :cascade do |t|
     t.float "sale_price"
     t.datetime "date_listed"
-    t.integer "product_id"
-    t.integer "user_id"
+    t.integer "Product_id"
+    t.integer "User_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_posts_on_product_id"
-    t.index ["user_id"], name: "index_posts_on_user_id"
+    t.index ["Product_id"], name: "index_posts_on_Product_id"
+    t.index ["User_id"], name: "index_posts_on_User_id"
   end
 
   create_table "products", force: :cascade do |t|
     t.string "product_name"
+    t.integer "User_id"
     t.string "product_details"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_products_on_user_id"
+    t.index ["User_id"], name: "index_products_on_User_id"
   end
 
   create_table "sales", force: :cascade do |t|

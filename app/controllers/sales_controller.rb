@@ -10,6 +10,7 @@ class SalesController < ApplicationController
   before_action :parse_request, only: :create
 
 
+  #DANNY"S PART
   def index
   	render json: Sale.all
   end

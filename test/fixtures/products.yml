@@ -2,10 +2,10 @@
 
 one:
   product_name: MyString
+  User: one
   product_details: MyString
-  user: one
 
 two:
   product_name: MyString
+  User: two
   product_details: MyString
-  user: two
