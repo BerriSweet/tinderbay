@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'products/index'
+
+  get 'products/create'
+
 	# Base for API Urls
 	scope 'api' do
 
@@ -20,6 +24,11 @@ Rails.application.routes.draw do
 
         #create page
           post '/', to: 'users#create'
+        end
+
+        scope "products" do #index page geto
+          get '/', to: 'products#index'
+          post '/', to: 'products#create' #create page
         end
       end
   	end
