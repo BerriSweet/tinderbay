@@ -18,19 +18,30 @@ Rails.application.routes.draw do
   				post '/', to: 'sales#create'
   			end
 
-      scope "users" do
-        #index page getto
-        get '/', to: 'users#index'
+            scope "users" do
+                #index page getto
+                get '/', to: 'users#index'
 
-        #create page
-          post '/', to: 'users#create'
-        end
+                #create page
+                post '/', to: 'users#create'
+            end
 
-        scope "products" do #index page geto
-          get '/', to: 'products#index'
-          post '/', to: 'products#create' #create page
+            scope "products" do 
+                #index page gettto
+                get '/', to: 'products#index'
+                
+                #create page
+                post '/', to: 'products#create' 
+            end
+            
+            scope "posts" do
+                #index page getttto
+                get '/', to: 'posts#index'
+                
+                #create page
+                post '/', to: 'posts#create'
+            end
         end
-      end
   	end
 
   resources :posts
