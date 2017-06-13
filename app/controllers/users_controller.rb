@@ -55,6 +55,8 @@ class UsersController < ApplicationController
       request.session_options[:skip] = true
     end
 	
+	# CALLUM'S SECTION
+	# destroy user
 	def destroy
 		id = params[:id]
 		u_destroy = User.find(id)
