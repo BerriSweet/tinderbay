@@ -54,4 +54,13 @@ class UsersController < ApplicationController
     def destroy_session
       request.session_options[:skip] = true
     end
+	
+	def destroy
+		id = params[:id]
+		u_destroy = User.find(id)
+		u_destroy.destroy
+		render json: u_destroy
+
+	end
+  
 end
