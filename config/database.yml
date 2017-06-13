@@ -5,13 +5,18 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
+  adapter: mysql2
+  uncoding: uft8
+  pool: 5
+  username: tinderbay
+  password: tinderbay
+  host: 223.27.22.124
+  port: 3306
+
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: tinderbay
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

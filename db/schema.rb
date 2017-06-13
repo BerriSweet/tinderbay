@@ -12,37 +12,37 @@
 
 ActiveRecord::Schema.define(version: 20170607031654) do
 
-  create_table "posts", force: :cascade do |t|
-    t.float "sale_price"
+  create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.float "sale_price", limit: 24
     t.datetime "date_listed"
-    t.integer "Product_id"
-    t.integer "User_id"
+    t.bigint "product_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["Product_id"], name: "index_posts_on_Product_id"
-    t.index ["User_id"], name: "index_posts_on_User_id"
+    t.index ["product_id"], name: "index_posts_on_product_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-  create_table "products", force: :cascade do |t|
+  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "product_name"
-    t.integer "User_id"
+    t.bigint "user_id"
     t.string "product_details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["User_id"], name: "index_products_on_User_id"
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
-  create_table "sales", force: :cascade do |t|
-    t.float "sale_price"
-    t.float "offer_price"
-    t.integer "product_id"
+  create_table "sales", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.float "sale_price", limit: 24
+    t.float "offer_price", limit: 24
+    t.bigint "product_id"
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_sales_on_product_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "user_name"
     t.datetime "date_of_birth"
     t.string "password_digest"
@@ -52,4 +52,8 @@ ActiveRecord::Schema.define(version: 20170607031654) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "posts", "products"
+  add_foreign_key "posts", "users"
+  add_foreign_key "products", "users"
+  add_foreign_key "sales", "products"
 end
