@@ -21,6 +21,16 @@ end
       render nothing: true, status: :internal_server_error
     end
   end
+  
+    # CALLUM'S SECTION
+  # Destroy Product
+  def destroy
+	id = params[:id]
+	puts id
+	d_destroy = Product.find(id)
+	d_destroy.destroy
+	render json: d_destroy
+  end
 
   private
 
@@ -34,4 +44,7 @@ end
   def destroy_session
     request.session_options[:skip] = true
   end
+  
+
+  
 end

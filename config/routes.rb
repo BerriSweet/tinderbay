@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
                 #create page
                 post '/', to: 'users#create'
+				delete '/:id', to: 'users#destroy'
             end
 
             scope "products" do 
@@ -32,6 +33,9 @@ Rails.application.routes.draw do
                 
                 #create page
                 post '/', to: 'products#create' 
+				
+				#delete products
+				delete '/:id', to: 'products#destroy'
             end
             
             scope "posts" do
