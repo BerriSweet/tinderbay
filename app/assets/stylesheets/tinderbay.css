@@ -36,3 +36,36 @@
     from {transform: scale(0)} 
     to {transform: scale(1)}
 }
+
+/* Main view for the products page */
+#mainbody {
+	width:100%;
+	min-height:600px;
+	background-color: #f2f2f2;
+}
+#picutreAside {
+	width:90%%;
+	min-height:400px;
+	background-color: #c4c4c4;
+	border-style: solid;
+	border-color: #000000;
+	margin: 1px 5%;
+}
+#productDescript {
+	width: 70%;
+	min-height:200px;
+	background-color: #c4c4c4;
+	border-style: solid;
+	border-color: #000000;
+	margin: 1px 15%;
+}
+#commentSection
+{
+	width: 70%;
+	min-height:100px;
+	background-color: #c4c4c4;
+	border-style: solid;
+	border-color: #000000;
+	text-align: center;
+	margin: 1px 15%;
+}

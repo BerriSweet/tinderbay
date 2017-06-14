@@ -47,6 +47,8 @@ Rails.application.routes.draw do
 
   get 'login/index'
 
+    get 'productsdetail/index'
+
   resources :posts
   resources :products
   resources :users
