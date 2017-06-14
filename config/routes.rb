@@ -48,6 +48,8 @@ Rails.application.routes.draw do
         end
   	end
 
+  get 'account/index'
+
   resources :posts
   resources :products
   resources :users

@@ -1,0 +1,57 @@
+/* Profile section - Jack */
+/*Needs changing to SASS*/
+
+#jacks{
+	height: 100%;
+	width: 750px;
+	margin: 1px;
+	float: left;
+}
+
+#pic{
+	margin: 1px;
+	float: left;
+}
+
+#placeholder{
+	height: 200px;
+	width: 200px;
+	margin: 1px;
+	float: left;
+}
+
+#user_details{
+	height: 120px;
+	width: 500px;
+	border-style: solid;
+	border-color: black;
+	margin: 1px;
+	float: left;
+}
+
+h2{
+	padding: 18px;
+	margin: 1px;
+	float: left;
+}
+
+#user_extra{
+	height: 230px;
+	width: 500px;
+	margin-top: 50px;
+	border-style: solid;
+	border-color: black;
+	margin: 1px;
+	float: left;
+}
+
+#product_details{
+	height: 300px;
+	width: 300px;
+	padding: 10px;
+	margin: 1px;
+	float: left;
+}
+
+
+
