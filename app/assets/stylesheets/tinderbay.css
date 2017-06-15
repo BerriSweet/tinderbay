@@ -69,6 +69,39 @@ h2{
     padding-top: 60px;
 }
 
+/* Homepage view - Callum */
+.grid {
+  margin-top: 20px;
+  display: table;
+  border-spacing: 5px;
+  border-style: solid;
+  border-color: black;
+  margin-left: 82px;
+}
+.row {
+  display: table-row;
+}
+.cell {
+  width: 120px;
+  height: 120px;
+  background: grey;
+  display: table-cell;
+}
+
+.topgrid {
+  display: inline;
+  text-align: center;
+}
+
+.topcell {
+  width: 175px;
+  height: 50px;
+  background: grey;
+  display: table-cell;
+  border-style: solid;
+  border-color: black;
+}
+
 /* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
