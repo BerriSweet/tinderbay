@@ -9,17 +9,17 @@
   </head>
 
   <body>
-    <%= yield %>
-          <header>
-            <nav>
-              <ul>
-                <li><%= link_to "Users", users_path %></li>
-                
-                <li><%= link_to "Products", products_path %></li>
-
-                <li><%= link_to "Posts", posts_path %></li>
+      <%# Ben Griffin #%>
+      <header>
+              <ul class="navbar">
+                <li class="nav_item"><%= link_to "Users", users_path %></li>
+                <li class="nav_item"><%= link_to "Products", products_path %></li>
+                <li class="nav_item"><%= link_to "Posts", posts_path %></li>
               </ul>
-            </nav>
         </header> 
+    <%= yield %>
+        <footer>
+            Placeholder Footer
+        </footer>
   </body>
 </html>

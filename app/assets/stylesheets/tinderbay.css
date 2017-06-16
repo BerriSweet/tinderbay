@@ -212,3 +212,28 @@ h2{
 	margin: 1px;
 	float: left;
 }
+/* Nav and Footer - Ben Griffin*/
+.navbar{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #dddddd;
+}
+
+.nav_item{
+    display: inline;
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav_item:hover{
+    background-color: darkgrey;
+}
+
+footer{
+    background-color: darkgray;
+}
