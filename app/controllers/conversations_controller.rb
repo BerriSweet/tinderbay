@@ -1,5 +1,5 @@
 class ConversationsController < ApplicationController
-  before_action :authenticate_user
+  before_action :authenticate_with_http_digest
 
   def index
     @users = User.all
