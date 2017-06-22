@@ -48,6 +48,14 @@ Rails.application.routes.draw do
         #create page
         post '/', to: 'posts#create'
       end
+
+      # Martin added these
+      scope "watchlists" do
+        get '/', to: 'watchlists#index'
+        post '/', to: 'watchlists#create'
+      end
+
+
     end
   end
 
@@ -60,7 +68,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :products
   resources :users
-
+  resources :watchlists
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'homepage#index'
 end
