@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170621134500) do
+ActiveRecord::Schema.define(version: 20170622100109) do
 
   create_table "conversations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "sender_id"
@@ -70,8 +70,19 @@ ActiveRecord::Schema.define(version: 20170621134500) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "watchlists", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "user_id"
+    t.bigint "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_watchlists_on_post_id"
+    t.index ["user_id"], name: "index_watchlists_on_user_id"
+  end
+
   add_foreign_key "posts", "products"
   add_foreign_key "posts", "users"
   add_foreign_key "products", "users"
   add_foreign_key "sales", "products"
+  add_foreign_key "watchlists", "posts"
+  add_foreign_key "watchlists", "users"
 end

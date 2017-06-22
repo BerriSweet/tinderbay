@@ -48,6 +48,14 @@ Rails.application.routes.draw do
         #create page
         post '/', to: 'posts#create'
       end
+
+      # Martin added these
+      scope "watchlists" do
+        get '/', to: 'watchlists#index'
+        post '/', to: 'watchlists#create'
+      end
+
+
     end
   end
 
